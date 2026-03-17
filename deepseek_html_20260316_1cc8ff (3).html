@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Турмаршрут по Европейской части России</title>
+    <!-- Подключение шрифтов -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome для иконок -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f0f7f0;
+            color: #2a4d2a;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Шапка */
+        header {
+            background: linear-gradient(135deg, #4f7a4f 0%, #6b9e6b 100%);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            font-weight: 300;
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            display: block;
+            color: #e0f0e0;
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 10px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: 2px solid #f4d03f;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .lang-btn.active {
+            background: #f4d03f;
+            color: #2a4d2a;
+        }
+
+        .lang-btn:hover {
+            background: #f4d03f;
+            color: #2a4d2a;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+            border-bottom: 2px solid #f4d03f;
+            padding-bottom: 3px;
+        }
+
+        /* Главный экран */
+        .hero {
+            background: linear-gradient(rgba(50, 80, 50, 0.7), rgba(30, 60, 30, 0.7)), url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #f4d03f;
+            color: #2a4d2a;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+        }
+
+        /* Секции */
+        section {
+            padding: 70px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #2a4d2a;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #f4d03f;
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #4d734d;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            font-weight: 300;
+        }
+
+        /* О проекте */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-card i {
+            font-size: 2.5rem;
+            color: #f4d03f;
+            margin-bottom: 15px;
+        }
+
+        .stat-card h3 {
+            font-size: 2rem;
+            color: #2a4d2a;
+        }
+
+        .stat-card p {
+            color: #4d734d;
+        }
+
+        /* Карта */
+        .custom-map {
+            background: #e0f0e0;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            margin-top: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .custom-map svg {
+            max-width: 100%;
+            height: auto;
+            background: #e0f0e0;
+            border-radius: 15px;
+        }
+
+        .map-point {
+            cursor: pointer;
+            transition: r 0.2s, filter 0.2s;
+            filter: drop-shadow(0 2px 3px rgba(0,0,0,0.2));
+        }
+        .map-point:hover {
+            r: 10;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+            animation: pulse 1s infinite;
+        }
+        @keyframes pulse {
+            0% { r: 8; }
+            50% { r: 10; }
+            100% { r: 8; }
+        }
+        .map-point-label {
+            font-size: 11px;
+            fill: #2a4d2a;
+            font-weight: 600;
+            pointer-events: none;
+            text-shadow: 0 1px 2px rgba(255,255,255,0.8);
+            transition: opacity 0.2s;
+        }
+        .map-point:hover + .map-point-label {
+            opacity: 1;
+            font-size: 12px;
+        }
+        .map-path {
+            stroke: #4f7a4f;
+            stroke-width: 3;
+            fill: none;
+            stroke-dasharray: 8 6;
+            filter: drop-shadow(0 2px 2px rgba(0,0,0,0.1));
+        }
+
+        .map-caption {
+            margin-top: 15px;
+            font-style: italic;
+            color: #2a4d2a;
+        }
+
+        /* Карточки городов */
+        .cities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .city-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .city-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .city-img {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .city-label {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(244, 208, 63, 0.9);
+            color: #2a4d2a;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .city-info {
+            padding: 20px;
+        }
+
+        .city-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #2a4d2a;
+        }
+
+        .city-info p {
+            color: #4d734d;
+            margin-bottom: 15px;
+        }
+
+        .city-feature {
+            font-weight: 600;
+            color: #f4d03f;
+        }
+
+        .city-feature i {
+            margin-right: 5px;
+        }
+
+        /* Секция планирования */
+        .planning-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .plan-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .plan-icon {
+            font-size: 3rem;
+            color: #f4d03f;
+            margin-bottom: 20px;
+        }
+
+        .plan-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #2a4d2a;
+        }
+
+        .plan-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .plan-link {
+            background: #f0f7f0;
+            padding: 10px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #2a4d2a;
+            font-weight: 500;
+            transition: background 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .plan-link i {
+            color: #f4d03f;
+        }
+
+        .plan-link:hover {
+            background: #e0f0e0;
+        }
+
+        /* Путеводитель */
+        .guide {
+            background: linear-gradient(145deg, #ffffff 0%, #e8f3e8 100%);
+            border-radius: 30px;
+            padding: 50px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .guide h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #2a4d2a;
+        }
+
+        .guide p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.2rem;
+        }
+
+        .guide-features {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin: 40px 0;
+        }
+
+        .feature-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature-item i {
+            font-size: 2.2rem;
+            color: #f4d03f;
+        }
+
+        /* Модальные окна */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 200;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.7);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            margin: 20px auto;
+            padding: 30px;
+            border-radius: 30px;
+            max-width: 900px;
+            width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2a4d2a;
+            cursor: pointer;
+            transition: 0.3s;
+            line-height: 1;
+        }
+
+        .close-modal:hover {
+            color: #f4d03f;
+        }
+
+        .modal h2 {
+            font-family: 'Playfair Display', serif;
+            color: #2a4d2a;
+            margin-bottom: 15px;
+            font-size: 2.2rem;
+        }
+
+        .modal-img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin: 20px 0;
+        }
+
+        .modal p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .modal h3 {
+            color: #2a4d2a;
+            margin: 20px 0 10px;
+            font-size: 1.5rem;
+        }
+
+        .modal ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .modal li {
+            margin-bottom: 5px;
+        }
+
+        /* Подвал */
+        footer {
+            background: #4f7a4f;
+            color: white;
+            padding: 40px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 3px;
+            background: #f4d03f;
+            margin-top: 5px;
+        }
+
+        .footer-col p, .footer-col a {
+            color: #e0f0e0;
+            text-decoration: none;
+            line-height: 2;
+        }
+
+        .footer-col a:hover {
+            color: #f4d03f;
+        }
+
+        .author-signature {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #6b9e6b;
+            color: #e0f0e0;
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .header-flex {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            nav ul {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .lang-switch {
+                justify-content: center;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .guide {
+                padding: 30px 20px;
+            }
+            .guide-features {
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-flex">
+            <div class="logo">European Russia <span>туристический маршрут</span></div>
+            <div class="lang-switch">
+                <button class="lang-btn active" data-lang="ru">Русский</button>
+                <button class="lang-btn" data-lang="en">English</button>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about" data-i18n="nav_about">О проекте</a></li>
+                    <li><a href="#map" data-i18n="nav_map">Маршрут</a></li>
+                    <li><a href="#cities" data-i18n="nav_cities">Города</a></li>
+                    <li><a href="#planning" data-i18n="nav_planning">Билеты и отели</a></li>
+                    <li><a href="#guide" data-i18n="nav_guide">Путеводитель</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 data-i18n="hero_title">Семь граней Европейской России</h1>
+            <p data-i18n="hero_subtitle">Уникальное путешествие от Балтики до Волги: история, культура, природа и гастрономия в одном маршруте</p>
+            <a href="#map" class="btn" data-i18n="hero_btn">Смотреть маршрут</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title" data-i18n="about_title">О проекте</h2>
+            <p class="section-subtitle" data-i18n="about_subtitle">Комплексный туристический маршрут по Европейской части России, созданный на основе анализа туристского потенциала и предпочтений путешественников.</p>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p data-i18n="about_text1"><strong>Цель проекта</strong> — создание туристического маршрута, привлекательного как для россиян, так и для иностранных гостей, который раскроет всё многообразие европейской части страны.</p>
+                    <p data-i18n="about_text2">В основе маршрута — гипотеза, что развитие туризма сдерживается не отсутствием ресурсов, а недостаточной маркетинговой политикой. Мы объединили 8 ключевых точек: Калининград, Санкт-Петербург, Выборг, Петрозаводск, Москву, Тулу, Нижний Новгород и Казань.</p>
+                    <p data-i18n="about_text3">Маршрут учитывает транспортную логистику (авиа + железные дороги), сезонность (советы по экономии до 30%) и интересы разных поколений.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <i class="fas fa-route"></i>
+                        <h3>8</h3>
+                        <p data-i18n="stat_cities">городов и регионов</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>14</h3>
+                        <p data-i18n="stat_days">дней (рекомендуемая продолжительность)</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-train"></i>
+                        <h3>>3000 км</h3>
+                        <p data-i18n="stat_distance">пути на поездах и авто</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-globe"></i>
+                        <h3>2</h3>
+                        <p data-i18n="stat_lang">языка путеводителя (рус/англ)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="map" style="background-color: #e0f0e0;">
+        <div class="container">
+            <h2 class="section-title" data-i18n="map_title">Карта маршрута</h2>
+            <p class="section-subtitle" data-i18n="map_subtitle">Логистика путешествия: авиаперелёт в Калининград, затем сеть железных дорог, связывающая все исторические центры.</p>
+            <div class="custom-map">
+                <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#c8e0c8;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#d8ecd8;stop-opacity:1" />
+                        </linearGradient>
+                        <linearGradient id="pathGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#4f7a4f;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#6b9e6b;stop-opacity:1" />
+                        </linearGradient>
+                        <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                            <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+                            <feMerge>
+                                <feMergeNode in="offsetblur" />
+                                <feMergeNode in="SourceGraphic" />
+                            </feMerge>
+                        </filter>
+                    </defs>
+                    <rect width="800" height="300" fill="url(#bgGrad)" rx="10" ry="10" />
+                    <path d="M100,200 L180,140 L260,80 L340,80 L420,120 L500,150 L580,130 L660,100" stroke="url(#pathGrad)" stroke-width="4" fill="none" stroke-dasharray="8 6" filter="url(#glow)" />
+                    <!-- Калининград -->
+                    <circle class="map-point" data-city="kaliningrad" cx="100" cy="200" r="8" fill="#f4d03f" stroke="#2a4d2a" stroke-width="2" title="Калининград" />
+                    <text x="85" y="180" class="map-point-label">Калининград</text>
+                    <!-- Санкт-Петербург -->
+                    <circle class="map-point" data-city="spb" cx="180" cy="140" r="8" fill="#f4d03f" stroke="#2a4d2a" stroke-width="2" title="Санкт-Петербург" />
+                    <text x="165" y="120" class="map-point-label">СПб</text>
+                    <!-- Выборг -->
+                    <circle class="map-point" data-city="vyborg" cx="260" cy="80" r="8" fill="#f4d03f" stroke="#2a4d2a" stroke-width="2" title="Выборг" />
+                    <text x="245" y="60" class="map-point-label">Выборг</text>
+                    <!-- Петрозаводск -->
+                    <circle class="map-point" data-city="karelia" cx="340" cy="80" r="8" fill="#f4d03f" stroke="#2a4d2a" stroke-width="2" title="Петрозаводск" />
+                    <text x="325" y="60" class="map-point-label">Петрозаводск</text>
+                    <!-- Москва -->
+                    <circle class="map-point" data-city="moscow" cx="420" cy="120" r="8" fill="#f4d03f" stroke="#2a4d2a" stroke-width="2" title="Москва" />
+                    <text x="405" y="100" class="map-point-label">Москва</text>
+                    <!-- Тула -->
+                    <circle class="map-point" data-city="tula" cx="500" cy="150" r="8" fill="#f4d03f" stroke="#2a4d2a" stroke-width="2" title="Тула" />
+                    <text x="485" y="130" class="map-point-label">Тула</text>
+                    <!-- Нижний Новгород -->
+                    <circle class="map-point" data-city="nnovgorod" cx="580" cy="130" r="8" fill="#f4d03f" stroke="#2a4d2a" stroke-width="2" title="Нижний Новгород" />
+                    <text x="555" y="110" class="map-point-label">Н.Новгород</text>
+                    <!-- Казань -->
+                    <circle class="map-point" data-city="kazan" cx="660" cy="100" r="8" fill="#f4d03f" stroke="#2a4d2a" stroke-width="2" title="Казань" />
+                    <text x="645" y="80" class="map-point-label">Казань</text>
+                </svg>
+                <div class="map-caption">
+                    <i class="fas fa-map-marker-alt" style="color:#f4d03f;"></i> <span data-i18n="map_cities">Калининград • Санкт-Петербург • Выборг • Петрозаводск • Москва • Тула • Нижний Новгород • Казань</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cities">
+        <div class="container">
+            <h2 class="section-title" data-i18n="cities_title">Города и жемчужины</h2>
+            <p class="section-subtitle" data-i18n="cities_subtitle">Каждый пункт маршрута — уникальное сочетание истории, архитектуры и атмосферы. Нажмите на карточку, чтобы узнать больше.</p>
+            <div class="cities-grid" id="cities-grid">
+                <!-- Динамически через JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция планирования поездки -->
+    <section id="planning" style="background-color: #e0f0e0;">
+        <div class="container">
+            <h2 class="section-title" data-i18n="planning_title">Планирование поездки</h2>
+            <p class="section-subtitle" data-i18n="planning_subtitle">Полезные сервисы для покупки билетов и бронирования жилья</p>
+            <div class="planning-grid" id="planning-grid">
+                <!-- Динамически через JS -->
+            </div>
+        </div>
+    </section>
+
+    <section id="guide">
+        <div class="container">
+            <div class="guide">
+                <h3 data-i18n="guide_title">Путеводитель по маршруту</h3>
+                <p data-i18n="guide_text">Двуязычный путеводитель (русский/английский) содержит подробное описание каждого дня, практические советы по экономии, карты и QR-коды для быстрого доступа к актуальной информации.</p>
+                <div class="guide-features">
+                    <div class="feature-item">
+                        <i class="fas fa-tag"></i>
+                        <span data-i18n="guide_feature1">Советы по сезонным скидкам до 30%</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-train"></i>
+                        <span data-i18n="guide_feature2">Оптимальные маршруты на поездах</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-wifi"></i>
+                        <span data-i18n="guide_feature3">QR-код с обновлениями</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-hand-holding-heart"></i>
+                        <span data-i18n="guide_feature4">Для молодёжи и пенсионеров</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4 data-i18n="footer_project">Проект</h4>
+                    <p data-i18n="footer_project_text">Индивидуальный проект по созданию туристического маршрута в Европейской части России. 2026 г.</p>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer_contacts">Контакты</h4>
+                    <p><i class="fas fa-envelope"></i> allazarev1909@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +7 995 420 40 91</p>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer_docs">Документы</h4>
+                    <p><a href="#" id="downloadProject" data-i18n="footer_full">Индивидуальный проект (полный текст)</a></p>
+                </div>
+            </div>
+            <div class="author-signature" data-i18n="author">Создал ученик 10 Б класса МОУ Кадетская школа г. Волжского Лазарев Александр</div>
+        </div>
+    </footer>
+
+    <!-- Модальные окна будут добавляться сюда динамически -->
+    <div id="modal-container"></div>
+
+    <script>
+        // Данные городов с полными статьями (восстановлено)
+        const citiesData = [
+            {
+                id: 'kaliningrad',
+                name: { ru: 'Калининград', en: 'Kaliningrad' },
+                shortDesc: { ru: 'Европейский колорит без визы. Кафедральный собор, остров Канта, Куршская коса.', en: 'European flavor without a visa. Cathedral, Kant Island, Curonian Spit.' },
+                feature: { ru: 'Рыбная деревня, старый Кёнигсберг', en: 'Fishing Village, old Königsberg' },
+                img: 'https://avatars.mds.yandex.net/get-entity_search/2238866/1247556142/orig',
+                article: {
+                    ru: {
+                        intro: 'Калининград — самый западный регион России, бывший Кёнигсберг, сохранивший дух старой Европы. Город основан в 1255 году рыцарями Тевтонского ордена.',
+                        highlights: [
+                            'Кафедральный собор на острове Канта — усыпальница философа Иммануила Канта, ныне концертный зал.',
+                            'Музей Мирового океана с уникальными судами-музеями.',
+                            'Рыбная деревня — стилизованный квартал с видом на реку Преголя.',
+                            'Куршская коса — национальный парк с песчаными дюнами, включённый в список ЮНЕСКО.'
+                        ],
+                        tips: 'Лучшее время для посещения — декабрь, когда город украшается рождественскими ярмарками, а цены на проживание ниже на 30%.'
+                    },
+                    en: {
+                        intro: 'Kaliningrad is the westernmost region of Russia, former Königsberg, preserving the spirit of old Europe. The city was founded in 1255 by the knights of the Teutonic Order.',
+                        highlights: [
+                            'Cathedral on Kant Island — the burial place of philosopher Immanuel Kant, now a concert hall.',
+                            'Museum of the World Ocean with unique museum ships.',
+                            'Fishing Village — a stylized quarter overlooking the Pregolya River.',
+                            'Curonian Spit — a national park with sand dunes, a UNESCO World Heritage Site.'
+                        ],
+                        tips: 'The best time to visit is December, when the city is decorated with Christmas fairs and accommodation prices are 30% lower.'
+                    }
+                }
+            },
+            {
+                id: 'spb',
+                name: { ru: 'Санкт-Петербург', en: 'Saint Petersburg' },
+                shortDesc: { ru: 'Культурная столица: Эрмитаж, Петергоф, Исаакиевский собор.', en: 'Cultural capital: Hermitage, Peterhof, St. Isaac\'s Cathedral.' },
+                feature: { ru: 'Белые ночи, разводные мосты', en: 'White Nights, drawbridges' },
+                img: 'https://avatars.mds.yandex.net/get-entity_search/6711483/1248629421/orig',
+                article: {
+                    ru: {
+                        intro: 'Санкт-Петербург основан Петром I в 1703 году. Более 200 лет город был столицей Российской империи.',
+                        highlights: [
+                            'Государственный Эрмитаж — один из величайших художественных музеев мира.',
+                            'Петергоф — «русский Версаль» с каскадами фонтанов.',
+                            'Исаакиевский собор и Спас на Крови.',
+                            'Разводные мосты и прогулки по Неве.'
+                        ],
+                        tips: 'Оптимальное время для экономии — сентябрь: открыт театральный сезон, пригороды в золотой осени, цены падают на 25–30%.'
+                    },
+                    en: {
+                        intro: 'Saint Petersburg was founded by Peter the Great in 1703. For over 200 years it was the capital of the Russian Empire.',
+                        highlights: [
+                            'The State Hermitage Museum — one of the world\'s greatest art museums.',
+                            'Peterhof — the "Russian Versailles" with cascading fountains.',
+                            'St. Isaac\'s Cathedral and the Church of the Savior on Spilled Blood.',
+                            'Drawbridges and cruises on the Neva River.'
+                        ],
+                        tips: 'The best time for savings is September: the theater season begins, suburbs are golden, and prices drop by 25–30%.'
+                    }
+                }
+            },
+            {
+                id: 'vyborg',
+                name: { ru: 'Выборг', en: 'Vyborg' },
+                shortDesc: { ru: 'Средневековый замок, парк Монрепо.', en: 'Medieval castle, Monrepos park.' },
+                feature: { ru: 'Выборгский замок (XIII век)', en: 'Vyborg Castle (13th century)' },
+                img: 'https://avatars.mds.yandex.net/get-entity_search/1978677/1224101751/orig',
+                article: {
+                    ru: {
+                        intro: 'Выборг основан шведами в 1293 году. Город уникален сохранившейся средневековой архитектурой.',
+                        highlights: [
+                            'Выборгский замок — единственный полностью сохранившийся средневековый замок в России.',
+                            'Парк Монрепо — скальный пейзажный парк на берегу бухты.',
+                            'Часовая башня и руины собора Доминиканского монастыря.',
+                            'Узкие брусчатые улочки старого города.'
+                        ],
+                        tips: 'Город удобно посещать в будни, чтобы избежать наплыва туристов. Легко добраться из Санкт-Петербурга на "Ласточке".'
+                    },
+                    en: {
+                        intro: 'Vyborg was founded by the Swedes in 1293. The city is unique for its preserved medieval architecture.',
+                        highlights: [
+                            'Vyborg Castle — the only fully preserved medieval castle in Russia.',
+                            'Monrepos Park — a rocky landscape park on the bay shore.',
+                            'The Clock Tower and ruins of the Dominican monastery.',
+                            'Narrow cobblestone streets of the old town.'
+                        ],
+                        tips: 'It\'s best to visit on weekdays to avoid crowds. Easily accessible from St. Petersburg by high-speed train.'
+                    }
+                }
+            },
+            {
+                id: 'karelia',
+                name: { ru: 'Карелия (Петрозаводск / Рускеала)', en: 'Karelia (Petrozavodsk / Ruskcala)' },
+                shortDesc: { ru: 'Горный парк «Рускеала», мраморные каньоны.', en: 'Ruskeala Mountain Park, marble canyons.' },
+                feature: { ru: 'Ладожское и Онежское озёра', en: 'Ladoga and Onega lakes' },
+                img: 'https://avatars.mds.yandex.net/get-entity_search/7913684/1244727050/SUx182_2x',
+                article: {
+                    ru: {
+                        intro: 'Карелия — край озёр и лесов, родина эпоса «Калевала».',
+                        highlights: [
+                            'Горный парк «Рускеала» — мраморный каньон с изумрудной водой.',
+                            'Водопад Кивач на реке Суна.',
+                            'Онежские петроглифы — древние наскальные рисунки.',
+                            'Остров Валаам с мужским монастырём.'
+                        ],
+                        tips: 'Зимой можно кататься на собачьих упряжках. Обязательно попробуйте карельскую уху и калитки.'
+                    },
+                    en: {
+                        intro: 'Karelia is a land of lakes and forests, the birthplace of the epic "Kalevala".',
+                        highlights: [
+                            'Ruskeala Mountain Park — a marble canyon with emerald water.',
+                            'Kivach waterfall on the Suna River.',
+                            'Onega petroglyphs — ancient rock carvings.',
+                            'Valaam Island with its famous monastery.'
+                        ],
+                        tips: 'In winter you can go dog sledding. Be sure to try Karelian fish soup and "kalitki".'
+                    }
+                }
+            },
+            {
+                id: 'moscow',
+                name: { ru: 'Москва', en: 'Moscow' },
+                shortDesc: { ru: 'Кремль, Красная площадь, Третьяковка.', en: 'Kremlin, Red Square, Tretyakov Gallery.' },
+                feature: { ru: 'Объекты ЮНЕСКО', en: 'UNESCO sites' },
+                img: 'https://avatars.mds.yandex.net/get-entity_search/1337931/1227505126/orig',
+                article: {
+                    ru: {
+                        intro: 'Москва — столица России, крупнейший город страны. Впервые упоминается в летописи 1147 года.',
+                        highlights: [
+                            'Московский Кремль и Красная площадь — сердце России, объект Всемирного наследия ЮНЕСКО.',
+                            'Третьяковская галерея — крупнейшее собрание русского искусства.',
+                            'ВДНХ — выставочный комплекс с фонтанами, павильонами и космическим музеем.',
+                            'Московское метро — подземные дворцы с уникальным декором.'
+                        ],
+                        tips: 'В выходные можно посетить многочисленные парки (Зарядье, Парк Горького). Для экономии выбирайте отели рядом с метро.'
+                    },
+                    en: {
+                        intro: 'Moscow is the capital of Russia, the country\'s largest city. First mentioned in chronicles in 1147.',
+                        highlights: [
+                            'Moscow Kremlin and Red Square — the heart of Russia, a UNESCO World Heritage Site.',
+                            'Tretyakov Gallery — the largest collection of Russian art.',
+                            'VDNKh — exhibition complex with fountains, pavilions, and a space museum.',
+                            'Moscow Metro — underground palaces with unique decoration.'
+                        ],
+                        tips: 'On weekends you can visit numerous parks (Zaryadye, Gorky Park). To save money, choose hotels near metro stations.'
+                    }
+                }
+            },
+            {
+                id: 'tula',
+                name: { ru: 'Тула', en: 'Tula' },
+                shortDesc: { ru: 'Тульский кремль, Музей оружия, пряники.', en: 'Tula Kremlin, Arms Museum, gingerbread.' },
+                feature: { ru: 'Знаменитый пряник', en: 'Famous gingerbread' },
+                img: 'https://avatars.mds.yandex.net/get-entity_search/1987348/1238307414/S600xU_2x',
+                article: {
+                    ru: {
+                        intro: 'Тула — город-герой, центр оружейного дела и пряничного производства. Основан в 1146 году.',
+                        highlights: [
+                            'Тульский кремль — старейшее сооружение города с мощными стенами и башнями.',
+                            'Музей оружия — уникальная коллекция от древних мечей до современных автоматов.',
+                            'Музей «Тульские самовары» и музей пряника.',
+                            'Обновлённая набережная реки Упы и пешеходная улица Металлистов.'
+                        ],
+                        tips: 'Тула идеальна для поездки выходного дня из Москвы (2 часа на электричке). Обязательно купите тульский пряник.'
+                    },
+                    en: {
+                        intro: 'Tula is a hero city, a center of arms production and gingerbread making. Founded in 1146.',
+                        highlights: [
+                            'Tula Kremlin — the oldest structure with powerful walls and towers.',
+                            'Arms Museum — a unique collection from ancient swords to modern assault rifles.',
+                            'Tula Samovar Museum and Gingerbread Museum.',
+                            'The renovated embankment of the Upa River and Metallistov pedestrian street.'
+                        ],
+                        tips: 'Tula is ideal for a weekend trip from Moscow (2 hours by train). Be sure to buy Tula gingerbread.'
+                    }
+                }
+            },
+            {
+                id: 'nnovgorod',
+                name: { ru: 'Нижний Новгород', en: 'Nizhny Novgorod' },
+                shortDesc: { ru: 'Кремль, Чкаловская лестница, канатная дорога.', en: 'Kremlin, Chkalov Staircase, cable car.' },
+                feature: { ru: 'Канатная дорога над Волгой', en: 'Cable car over the Volga' },
+                img: 'https://avatars.mds.yandex.net/get-entity_search/10105370/1244225374/S600xU_2x',
+                article: {
+                    ru: {
+                        intro: 'Нижний Новгород основан в 1221 году, расположен при слиянии Оки и Волги.',
+                        highlights: [
+                            'Нижегородский кремль — уникальная крепость с 13 башнями.',
+                            'Улица Рождественская с купеческими особняками.',
+                            'Чкаловская лестница — самая длинная лестница в России (560 ступеней).',
+                            'Канатная дорога через Волгу до города Бор.'
+                        ],
+                        tips: 'После новогодних каникул цены на жильё минимальны. Обязательно попробовать местные наливки и крафтовое пиво.'
+                    },
+                    en: {
+                        intro: 'Nizhny Novgorod was founded in 1221 at the confluence of the Oka and Volga rivers.',
+                        highlights: [
+                            'Nizhny Novgorod Kremlin — a unique fortress with 13 towers.',
+                            'Rozhdestvenskaya Street with merchant mansions.',
+                            'Chkalov Staircase — the longest staircase in Russia (560 steps).',
+                            'Cable car across the Volga to Bor.'
+                        ],
+                        tips: 'After the New Year holidays, accommodation prices are minimal. Try local liqueurs and craft beer.'
+                    }
+                }
+            },
+            {
+                id: 'kazan',
+                name: { ru: 'Казань', en: 'Kazan' },
+                shortDesc: { ru: 'Казанский Кремль, татарская кухня.', en: 'Kazan Kremlin, Tatar cuisine.' },
+                feature: { ru: 'Мечеть Кул-Шариф', en: 'Kul Sharif Mosque' },
+                img: 'https://avatars.mds.yandex.net/get-entity_search/5126074/1248389346/S184xU_2x',
+                article: {
+                    ru: {
+                        intro: 'Казань — столица Татарстана, город тысячелетней истории, где переплелись восточная и европейская культуры.',
+                        highlights: [
+                            'Казанский Кремль — объект ЮНЕСКО, включающий мечеть Кул-Шариф и Благовещенский собор.',
+                            'Падающая башня Сююмбике.',
+                            'Дворец земледельцев — современная резиденция с монументальным фасадом.',
+                            'Старо-Татарская слобода и улица Баумана.'
+                        ],
+                        tips: 'Май и сентябрь — лучшие месяцы для визита. Не уезжайте без чак-чака и эчпочмаков.'
+                    },
+                    en: {
+                        intro: 'Kazan is the capital of Tatarstan, a city with a thousand-year history where Eastern and European cultures intertwine.',
+                        highlights: [
+                            'Kazan Kremlin — a UNESCO site, including the Kul Sharif Mosque and the Annunciation Cathedral.',
+                            'The leaning Syuyumbike Tower.',
+                            'Palace of Farmers — a modern residence with a monumental facade.',
+                            'Old Tatar Settlement and Bauman Street.'
+                        ],
+                        tips: 'May and September are the best months to visit. Don\'t leave without trying chak-chak and echpochmaks.'
+                    }
+                }
+            }
+        ];
+
+        // Данные для секции планирования (рабочие ссылки)
+        const planningData = [
+            {
+                category: { ru: 'Авиабилеты', en: 'Flights' },
+                icon: 'fas fa-plane',
+                links: [
+                    { name: 'Aviasales', url: 'https://www.aviasales.ru', icon: 'fas fa-search' },
+                    { name: 'Яндекс.Путешествия', url: 'https://travel.yandex.ru', icon: 'fas fa-map-marked-alt' },
+                    { name: 'Tutu.ru', url: 'https://www.tutu.ru', icon: 'fas fa-train' }
+                ]
+            },
+            {
+                category: { ru: 'Ж/д билеты', en: 'Trains' },
+                icon: 'fas fa-train',
+                links: [
+                    { name: 'РЖД', url: 'https://www.rzd.ru', icon: 'fas fa-subway' },
+                    { name: 'Tutu.ru', url: 'https://www.tutu.ru/poezda/', icon: 'fas fa-clock' }
+                ]
+            },
+            {
+                category: { ru: 'Отели', en: 'Hotels' },
+                icon: 'fas fa-hotel',
+                links: [
+                    { name: 'Ostrovok.ru', url: 'https://ostrovok.ru', icon: 'fas fa-building' },
+                    { name: 'Яндекс.Путешествия', url: 'https://travel.yandex.ru/hotels', icon: 'fas fa-bed' },
+                    { name: '101Hotels', url: 'https://101hotels.com', icon: 'fas fa-home' }
+                ]
+            },
+            {
+                category: { ru: 'Экскурсии', en: 'Tours' },
+                icon: 'fas fa-camera',
+                links: [
+                    { name: 'Sputnik8', url: 'https://sputnik8.com', icon: 'fas fa-walking' },
+                    { name: 'Tripster', url: 'https://tripster.ru', icon: 'fas fa-umbrella-beach' }
+                ]
+            }
+        ];
+
+        // Переводы
+        const translations = {
+            ru: {
+                nav_about: 'О проекте',
+                nav_map: 'Маршрут',
+                nav_cities: 'Города',
+                nav_planning: 'Билеты и отели',
+                nav_guide: 'Путеводитель',
+                hero_title: 'Семь граней Европейской России',
+                hero_subtitle: 'Уникальное путешествие от Балтики до Волги: история, культура, природа и гастрономия в одном маршруте',
+                hero_btn: 'Смотреть маршрут',
+                about_title: 'О проекте',
+                about_subtitle: 'Комплексный туристический маршрут по Европейской части России, созданный на основе анализа туристского потенциала и предпочтений путешественников.',
+                about_text1: '<strong>Цель проекта</strong> — создание туристического маршрута, привлекательного как для россиян, так и для иностранных гостей, который раскроет всё многообразие европейской части страны.',
+                about_text2: 'В основе маршрута — гипотеза, что развитие туризма сдерживается не отсутствием ресурсов, а недостаточной маркетинговой политикой. Мы объединили 8 ключевых точек: Калининград, Санкт-Петербург, Выборг, Петрозаводск, Москву, Тулу, Нижний Новгород и Казань.',
+                about_text3: 'Маршрут учитывает транспортную логистику (авиа + железные дороги), сезонность (советы по экономии до 30%) и интересы разных поколений.',
+                stat_cities: 'городов и регионов',
+                stat_days: 'дней (рекомендуемая продолжительность)',
+                stat_distance: 'пути на поездах и авто',
+                stat_lang: 'языка путеводителя (рус/англ)',
+                map_title: 'Карта маршрута',
+                map_subtitle: 'Логистика путешествия: авиаперелёт в Калининград, затем сеть железных дорог, связывающая все исторические центры.',
+                map_cities: 'Калининград • Санкт-Петербург • Выборг • Петрозаводск • Москва • Тула • Нижний Новгород • Казань',
+                cities_title: 'Города и жемчужины',
+                cities_subtitle: 'Каждый пункт маршрута — уникальное сочетание истории, архитектуры и атмосферы. Нажмите на карточку, чтобы узнать больше.',
+                planning_title: 'Планирование поездки',
+                planning_subtitle: 'Полезные сервисы для покупки билетов и бронирования жилья',
+                guide_title: 'Путеводитель по маршруту',
+                guide_text: 'Двуязычный путеводитель (русский/английский) содержит подробное описание каждого дня, практические советы по экономии, карты и QR-коды для быстрого доступа к актуальной информации.',
+                guide_feature1: 'Советы по сезонным скидкам до 30%',
+                guide_feature2: 'Оптимальные маршруты на поездах',
+                guide_feature3: 'QR-код с обновлениями',
+                guide_feature4: 'Для молодёжи и пенсионеров',
+                footer_project: 'Проект',
+                footer_project_text: 'Индивидуальный проект по созданию туристического маршрута в Европейской части России. 2026 г.',
+                footer_contacts: 'Контакты',
+                footer_docs: 'Документы',
+                footer_full: 'Индивидуальный проект (полный текст)',
+                author: 'Создал ученик 10 Б класса МОУ Кадетская школа г. Волжского Лазарев Александр'
+            },
+            en: {
+                nav_about: 'About',
+                nav_map: 'Route',
+                nav_cities: 'Cities',
+                nav_planning: 'Tickets & Hotels',
+                nav_guide: 'Guide',
+                hero_title: 'Seven Facets of European Russia',
+                hero_subtitle: 'A unique journey from the Baltic to the Volga: history, culture, nature, and gastronomy in one route',
+                hero_btn: 'View Route',
+                about_title: 'About the Project',
+                about_subtitle: 'A comprehensive tourist route through European Russia, based on analysis of tourist potential and traveler preferences.',
+                about_text1: '<strong>The goal</strong> is to create a tourist route attractive to both Russians and foreign guests, revealing the diversity of the European part of the country.',
+                about_text2: 'The route is based on the hypothesis that tourism development is hindered not by a lack of resources but by insufficient marketing. We have combined 8 key points: Kaliningrad, St. Petersburg, Vyborg, Petrozavodsk, Moscow, Tula, Nizhny Novgorod, and Kazan.',
+                about_text3: 'The route takes into account transport logistics (air + rail), seasonality (savings tips up to 30%), and interests of different generations.',
+                stat_cities: 'cities and regions',
+                stat_days: 'days (recommended duration)',
+                stat_distance: 'route by train and car',
+                stat_lang: 'guide languages (Rus/Eng)',
+                map_title: 'Route Map',
+                map_subtitle: 'Travel logistics: flight to Kaliningrad, then a network of railways connecting all historic centers.',
+                map_cities: 'Kaliningrad • St. Petersburg • Vyborg • Petrozavodsk • Moscow • Tula • Nizhny Novgorod • Kazan',
+                cities_title: 'Cities and Gems',
+                cities_subtitle: 'Each point on the route is a unique combination of history, architecture, and atmosphere. Click on a card to learn more.',
+                planning_title: 'Trip Planning',
+                planning_subtitle: 'Useful services for booking tickets and accommodation',
+                guide_title: 'Route Guide',
+                guide_text: 'The bilingual guide (Russian/English) contains a detailed day-by-day description, practical savings tips, maps, and QR codes for quick access to up-to-date information.',
+                guide_feature1: 'Seasonal discounts up to 30%',
+                guide_feature2: 'Optimal train routes',
+                guide_feature3: 'QR code for updates',
+                guide_feature4: 'For youth and seniors',
+                footer_project: 'Project',
+                footer_project_text: 'Individual project on creating a tourist route in European Russia. 2026.',
+                footer_contacts: 'Contacts',
+                footer_docs: 'Documents',
+                footer_full: 'Full project text',
+                author: 'Created by Alexander Lazarev, 10th grade student, Cadet School, Volzhsky'
+            }
+        };
+
+        let currentLang = 'ru';
+
+        function applyTranslation(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = translations[lang][key];
+                    } else {
+                        el.innerHTML = translations[lang][key];
+                    }
+                }
+            });
+        }
+
+        function renderCityCards(lang) {
+            const grid = document.getElementById('cities-grid');
+            grid.innerHTML = '';
+            citiesData.forEach(city => {
+                const card = document.createElement('div');
+                card.className = 'city-card';
+                card.setAttribute('data-city', city.id);
+                card.innerHTML = `
+                    <div class="city-img" style="background-image: url('${city.img}');">
+                        <div class="city-label">${city.name[lang]}</div>
+                    </div>
+                    <div class="city-info">
+                        <h3>${city.name[lang]}</h3>
+                        <p>${city.shortDesc[lang]}</p>
+                        <div class="city-feature"><i class="fas fa-landmark"></i> ${city.feature[lang]}</div>
+                    </div>
+                `;
+                card.addEventListener('click', () => openModal(city.id, lang));
+                grid.appendChild(card);
+            });
+        }
+
+        function renderPlanningGrid(lang) {
+            const grid = document.getElementById('planning-grid');
+            grid.innerHTML = '';
+            planningData.forEach(cat => {
+                const card = document.createElement('div');
+                card.className = 'plan-card';
+                const linksHtml = cat.links.map(link => 
+                    `<a href="${link.url}" target="_blank" rel="noopener noreferrer" class="plan-link">
+                        <i class="${link.icon}"></i> ${link.name}
+                    </a>`
+                ).join('');
+                card.innerHTML = `
+                    <div class="plan-icon"><i class="${cat.icon}"></i></div>
+                    <h3>${cat.category[lang]}</h3>
+                    <div class="plan-links">${linksHtml}</div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function openModal(cityId, lang) {
+            const city = citiesData.find(c => c.id === cityId);
+            if (!city) return;
+
+            const oldModal = document.querySelector('.modal');
+            if (oldModal) oldModal.remove();
+
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            modal.id = `modal-${cityId}`;
+            modal.style.display = 'flex';
+
+            const article = city.article[lang];
+            const highlightsList = article.highlights.map(h => `<li>${h}</li>`).join('');
+
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <h2>${city.name[lang]}</h2>
+                    <img class="modal-img" src="${city.img}" alt="${city.name[lang]}">
+                    <p>${article.intro}</p>
+                    <h3>${lang === 'ru' ? 'Главные достопримечательности' : 'Main attractions'}</h3>
+                    <ul>${highlightsList}</ul>
+                    <h3>${lang === 'ru' ? 'Совет путешественнику' : 'Travel tip'}</h3>
+                    <p>${article.tips}</p>
+                </div>
+            `;
+
+            document.body.appendChild(modal);
+
+            modal.querySelector('.close-modal').addEventListener('click', () => {
+                modal.remove();
+            });
+
+            window.addEventListener('click', (e) => {
+                if (e.target === modal) modal.remove();
+            });
+        }
+
+        // Обработчики переключения языка
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                const lang = this.getAttribute('data-lang');
+                currentLang = lang;
+                applyTranslation(lang);
+                renderCityCards(lang);
+                renderPlanningGrid(lang);
+            });
+        });
+
+        // Клик по точкам на карте
+        document.querySelectorAll('.map-point').forEach(point => {
+            point.addEventListener('click', function() {
+                const cityId = this.getAttribute('data-city');
+                openModal(cityId, currentLang);
+            });
+        });
+
+        // Инициализация
+        renderCityCards('ru');
+        renderPlanningGrid('ru');
+        applyTranslation('ru');
+
+        // Скачивание проекта
+        document.getElementById('downloadProject').addEventListener('click', function(e) {
+            e.preventDefault();
+            const text = `Оглавление\nВведение\n... (полный текст проекта) ...`;
+            const blob = new Blob([text], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'project.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        });
+    </script>
+</body>
+</html>
